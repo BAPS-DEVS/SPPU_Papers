@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "693815660615",
+    "firebase_url": "https://sppu-engineering-papers-9b607-default-rtdb.firebaseio.com",
+    "project_id": "sppu-engineering-papers-9b607",
+    "storage_bucket": "sppu-engineering-papers-9b607.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693815660615:android:653aa0712f5aa96cb1a162",
+        "android_client_info": {
+          "package_name": "com.sppupapers"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693815660615-mk4dmmo7aa41d088j9a0qk5th6bedqpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMM2UqJOOa5EzyzaXsHBFIq7risgouMCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693815660615-mk4dmmo7aa41d088j9a0qk5th6bedqpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
