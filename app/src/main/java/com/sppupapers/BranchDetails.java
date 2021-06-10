@@ -308,63 +308,63 @@ public class BranchDetails extends AppCompatActivity {
 
     private void compcase(String[] yearSubArray, int pos) {
         if (pos == 0) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub0", yearSubArray[0]);
             startActivity(intent);
         } else if (pos == 1) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub1", yearSubArray[1]);
             startActivity(intent);
         } else if (pos == 2) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub2", yearSubArray[2]);
             startActivity(intent);
         } else if (pos == 3) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub3", yearSubArray[3]);
             startActivity(intent);
         } else if (pos == 4) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub4", yearSubArray[4]);
             startActivity(intent);
         } else if (pos == 5) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub5", yearSubArray[5]);
             startActivity(intent);
         } else if (pos == 6) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub6", yearSubArray[6]);
             startActivity(intent);
         } else if (pos == 7) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub7", yearSubArray[7]);
             startActivity(intent);
         } else if (pos == 8) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub8", yearSubArray[8]);
             startActivity(intent);
         } else if (pos == 9) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub9", yearSubArray[9]);
             startActivity(intent);
         } else if (pos == 10) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub10", yearSubArray[10]);
             startActivity(intent);
         } else if (pos == 11) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub11", yearSubArray[11]);
             startActivity(intent);
         } else if (pos == 12) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub12", yearSubArray[12]);
             startActivity(intent);
         } else if (pos == 13) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub13", yearSubArray[13]);
             startActivity(intent);
         } else if (pos == 14) {
-            Intent intent = new Intent(getApplicationContext(), PaperDetails.class);
+            Intent intent = new Intent(getApplicationContext(), PaperDetailsTab.class);
             intent.putExtra("sub14", yearSubArray[14]);
             startActivity(intent);
         }
