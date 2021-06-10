@@ -15,7 +15,11 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,6 +29,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.Inflater;
+
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -42,6 +48,7 @@ public class ftab1 extends Fragment{
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
 
     public ftab1() {
         // Required empty public constructor
@@ -84,6 +91,8 @@ public class ftab1 extends Fragment{
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -94,6 +103,17 @@ public class ftab1 extends Fragment{
         rView = (RecyclerView) rootView.findViewById(R.id.recView);
         rView.setLayoutManager(new LinearLayoutManager(getActivity()));
         viewModelList = new ArrayList<>();
+
+        MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
         Intent intent = getActivity().getIntent();
 
         if (intent.hasExtra("sub0")) {
