@@ -1,12 +1,33 @@
 package com.sppupapers;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,12 +74,205 @@ public class ftab2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
     }
+
+    String stringPath = "";
+    List<ViewModel> viewModelList;
+    DatabaseReference dataBaseReference;
+    MyAdapter adapter;
+    RecyclerView rView;
+    int clicked=0;
+    String subName="";
+    private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_ftab2, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_ftab2, container, false);
+
+        rView = (RecyclerView) rootView.findViewById(R.id.recView);
+        rView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        viewModelList = new ArrayList<>();
+
+        MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+        mAdView = rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
+
+        Intent intent = getActivity().getIntent();
+
+        if (intent.hasExtra("sub1.0")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub1.0");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+
+        }
+        else if (intent.hasExtra("sub1")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub1");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub2")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub2");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub3")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub3");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub4")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub4");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub5")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub5");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub6")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub6");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub7")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub7");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub8")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub8");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub9")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub9");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub10")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub10");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub11")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub11");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub12")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub12");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub13")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub13");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else if (intent.hasExtra("sub14")) {
+            // Clear the List. . .( viewModelList.clear() )
+            stringPath = intent.getStringExtra("sub14");
+            getFireBaseList(stringPath);
+            getDataFromFireBase(stringPath);
+
+        }
+        else
+        {
+            Toast.makeText(getActivity(),"Loading...",Toast.LENGTH_LONG).show();
+        }
+
+//        return inflater.inflate(R.layout.fragment_ftab1, container, false);
+        return rootView;
+
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    private void getDataFromFireBase( String paperLink ){
+        FirebaseRecyclerOptions<ViewModel> options =
+                new FirebaseRecyclerOptions.Builder<ViewModel>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child(paperLink), ViewModel.class)
+                        .build();
+        String TAG = "TEST";
+
+        Log.i(TAG,"inside function get data from firebase");
+        adapter = new MyAdapter(options, getActivity(), viewModelList);
+        rView.setAdapter(adapter);
+
+//        adapter.notifyDataSetChanged();
+
+    }
+
+    private void getFireBaseList( String firebaseList ){
+        viewModelList.clear();
+        dataBaseReference = FirebaseDatabase.getInstance().getReference(firebaseList);
+
+        dataBaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot postSnapshot : snapshot.getChildren()) {
+                    ViewModel viewModel = postSnapshot.getValue(ViewModel.class);
+//                    ListPDF ListPdf = postSnapshot.getValue(ListPDF.class);
+                    viewModelList.add(viewModel);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
+
 }
